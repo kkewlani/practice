@@ -25,7 +25,7 @@
 
 import java.math.BigDecimal;
 
-class Solution {
+class AddReverseNumberAsList {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int l1Length, l2Length;
         BigDecimal number1, number2;
@@ -72,4 +72,11 @@ class Solution {
         return head;
     }
 
+    class ListNode {
+        ListNode next;
+        int val;
+         public ListNode(int val) {
+             this.val = val;
+         }
+    }
 }

@@ -1,6 +1,11 @@
 // Runtime Complexity - O(n + n log n + n + k) = O(n log n)
 // Space complexity - O(n)
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
 class TwoSumBySorting {
     public int[] twoSum(
             int[] nums,
