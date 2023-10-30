@@ -15,4 +15,8 @@ In order to commit to personal git repository in gitu hub do following:
 
 ### Reference
 1. [More details here in this post-comments section](https://gist.github.com/jexchan/2351996)
-
+2. Ran into some ssh issues with git. Used following Posts to resolve: 
+   1. https://github.blog/2023-03-23-we-updated-our-rsa-ssh-host-key/
+   2. https://docs.github.com/en/authentication/troubleshooting-ssh/error-permission-denied-publickey
+   3. https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+   4. 
