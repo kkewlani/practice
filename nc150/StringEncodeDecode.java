@@ -27,11 +27,12 @@ import java.util.*;
  * Clarifying ques should be:
  * 1. are there only words? or can be sentences ?
  * 2. what special characters can be part fo the string?
- * 3. behavior when string is null and empty in input for encoding
+ * 3. behavior when string is null and empty in input for decoding
  * 4. expected behavior with empty or null list
+ * 5. Can empty string be part of the input list ?
  */
 
-// This uses stringBuffer isEmpty method - available from Java15 + 
+// This uses stringBuffer isEmpty method - available from Java15 +
 public class StringEncodeDecode {
     public String encode(List<String> strs) {
         if(strs==null || strs.isEmpty()) {
