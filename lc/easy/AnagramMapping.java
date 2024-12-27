@@ -1,0 +1,63 @@
+package easy;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+/**
+ * You are given two integer arrays nums1 and nums2 where nums2 is an anagram of nums1. Both arrays may contain duplicates.
+ * <p>
+ * Return an index mapping array mapping from nums1 to nums2 where mapping[i] = j means the ith element in nums1 appears in nums2 at index j. If there are multiple answers, return any of them.
+ * <p>
+ * An array a is an anagram of an array b means b is made by randomizing the order of the elements in a.
+ * <p>
+ * <p>
+ * <p>
+ * Example 1:
+ * <p>
+ * Input: nums1 = [12,28,46,32,50], nums2 = [50,12,32,46,28]
+ * Output: [1,4,3,2,0]
+ * Explanation: As mapping[0] = 1 because the 0th element of nums1 appears at nums2[1], and mapping[1] = 4 because the 1st element of nums1 appears at nums2[4], and so on.
+ * Example 2:
+ * <p>
+ * Input: nums1 = [84,46], nums2 = [84,46]
+ * Output: [0,1]
+ * <p>
+ * <p>
+ * Constraints:
+ * <p>
+ * 1 <= nums1.length <= 100
+ * nums2.length == nums1.length
+ * 0 <= nums1[i], nums2[i] <= 105
+ * nums2 is an anagram of nums1.
+ */
+public class AnagramMapping {
+    public int[] anagramMappings(int[] nums2, int[] nums1) {
+        if (nums1 == null || nums2 == null || nums1.length != nums2.length) {
+            return null;
+        }
+
+        HashMap<Integer, List<Integer>> valueToIndexMap = new HashMap<Integer, List<Integer>>();
+        for (int i = 0; i < nums1.length; i++) {
+            List<Integer> indices = valueToIndexMap.getOrDefault(nums1[i], new ArrayList<Integer>());
+            indices.add(i);
+            valueToIndexMap.put(nums1[i], indices);
+        }
+
+        int[] mapping = new int[nums2.length];
+        for (int j = 0; j < nums2.length; j++) {
+            if (valueToIndexMap.containsKey(nums2[j])) {
+                List<Integer> indices = valueToIndexMap.get(nums2[j]);
+                if (indices.isEmpty()) {
+                    return null;
+                }
+                mapping[j] = indices.get(indices.size() - 1);
+                indices.remove(indices.size() - 1);
+            } else {
+                return null;
+            }
+        }
+
+        return mapping;
+    }
+}
